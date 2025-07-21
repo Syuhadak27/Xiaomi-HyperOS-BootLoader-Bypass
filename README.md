@@ -38,7 +38,7 @@ clang make
 
 2. 🔃 Clone Repositori
 ```bash
-git clone https://github.com/Syuhadak27/Bypass-mi-comunity-for-unlock-bootloader-hyperOs.git bypass
+git clone https://github.com/Syuhadak27/Xiaomi-HyperOS-BootLoader-Bypass.git bypass
 cd bypass
 ```
 
