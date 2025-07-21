@@ -37,6 +37,10 @@ clang make
 ```
 
 2. 🔃 Clone Repositori
+```bash
+git clone https://github.com/Syuhadak27/Bypass-mi-comunity-for-unlock-bootloader-hyperOs.git bypass
+cd bypass
+```
 
 3. 📦 Install Dependencies
 ```bash
@@ -69,10 +73,6 @@ Kemudian ulangi perintah pip install di atas.
 
 
 4. Install Add-on "Cookie Editor"
-
-Link Extension (Add-on)
-
-
 
 5. Setelah login sukses, buka Cookie Editor
 
