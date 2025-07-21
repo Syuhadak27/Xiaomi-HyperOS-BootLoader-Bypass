@@ -30,22 +30,27 @@ Script ini bekerja dengan **sinkronisasi NTP**, **pengukuran delay jaringan**, d
 ### 1. 📥 Install Termux dan Update
 ```bash
 pkg update && pkg upgrade
-pkg install python git openssl libffi clang make
+```
+```bash
+pkg install python git openssl libffi
+clang make
+```
 
 2. 🔃 Clone Repositori
 
-git clone https://github.com/username/unlock-xiaomi-auto.git
-cd unlock-xiaomi-auto
-
 3. 📦 Install Dependencies
-
+```bash
 pip install --upgrade pip
+```
+```bash
 pip install -r requirements.txt
+```
 
 Jika ada error SSL (ssl module is not available), lakukan reinstall Python:
-
+```bash
 pkg uninstall python
 pkg install python
+```
 
 Kemudian ulangi perintah pip install di atas.
 
@@ -103,14 +108,15 @@ Lalu mengirim request unlock tepat pukul 00:00:00 waktu Beijing
 1. Ubah config.py (opsional)
 
 # config.py
-
+```bash
 COOKIE_VALUE = "ISI_TOKEN_MU_DI_SINI"
 DEVICE_ID = ""  # Biarkan kosong untuk generate otomatis
+```
 
 2. Jalankan Script
-
+```bash
 python main.py
-
+```
 Script akan otomatis:
 
 Mengecek status akun
@@ -124,38 +130,15 @@ Menunggu waktu ideal
 Mengirim request unlock
 
 Menampilkan hasil di terminal
+Apapun hasilnya di terminal jangan di tutup terminal nya, 
+Logout akun mi di pengaturan, lalu login kembali, dan masuk ke developer option lalu tambahkan dan tautkan perangkat.
 
 
-
----
-
-📁 Struktur File
-
-unlock-xiaomi-auto/
-├── main.py
-├── config.py
-├── requirements.txt
-└── README.md
-
-
----
-
-☕ Tips Tambahan
-
-Gunakan termux-wake-lock agar Termux tidak tertidur
-
-Bisa digabung dengan cron/Termux Widget jika ingin otomatis harian
-
-
-
----
 
 📜 Lisensi
 
 Proyek ini bersifat eksperimental dan tidak berafiliasi dengan Xiaomi. Gunakan dengan risiko sendiri.
 
-
----
 
 ---
 
