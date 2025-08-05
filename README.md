@@ -105,7 +105,7 @@ Lalu mengirim request unlock tepat pukul 00:00:00 waktu Beijing
 
 🚀 Menjalankan Script
 
-1. Ubah config.py (opsional)
+1. Ubah config.py sesuaikan dg token mu
 
 # config.py
 ```bash
