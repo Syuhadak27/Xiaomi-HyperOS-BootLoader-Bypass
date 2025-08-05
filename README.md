@@ -1,83 +1,117 @@
 
----
-
-# 🔓 Xiaomi Unlock Automation Script (Redmi Note 14 5G / Beryl)
-
-Script Python ini digunakan untuk **mengirim permintaan unlock (bootloader unlock)** secara otomatis ke server Xiaomi (`https://sgp-api.buy.mi.com`) tepat di awal hari waktu Beijing (UTC+8).  
-Script ini bekerja dengan **sinkronisasi NTP**, **pengukuran delay jaringan**, dan **pengiriman request yang presisi** agar peluang unlock meningkat.
 
 ---
 
-## 📱 Kompatibilitas
-✅ Telah diuji dan **berhasil** di perangkat:
-- **Redmi Note 14 5G** (codename: `beryl`)
-- Menggunakan Termux Android
-- Koneksi internet stabil
+🔓 Xiaomi Unlock Automation Script
+
+(Redmi Note 14 5G / Beryl)
+
+Script Python ini digunakan untuk mengirim permintaan unlock bootloader secara otomatis ke server Xiaomi (https://sgp-api.buy.mi.com) tepat di awal hari waktu Beijing (UTC+8).
+
+Script bekerja dengan:
+
+Sinkronisasi waktu via NTP
+
+Pengukuran delay jaringan
+
+Pengiriman request yang sangat presisi
+
+
+...untuk meningkatkan peluang unlock yang berhasil.
+
 
 ---
 
-## 📦 Fitur Utama
+📱 Kompatibilitas
 
-- ✅ Otomatis ambil waktu Beijing dari NTP server
-- ✅ Hitung delay jaringan (ping) ke server Xiaomi
-- ✅ Kirim request unlock **tepat pukul 00:00 waktu Beijing**
-- ✅ Deteksi status akun (eligible / ditolak / menunggu)
+✅ Telah diuji dan berhasil di:
+
+Redmi Note 14 5G (codename: beryl)
+
+Lingkungan Termux (Android)
+
+Koneksi internet stabil
+
+
 
 ---
 
-## ⚙️ Cara Install di Termux (Langkah demi langkah)
+📦 Fitur Utama
 
-### 1. 📥 Install Termux dan Update
+✅ Sinkronisasi waktu Beijing via NTP
+
+✅ Penghitungan delay (ping) ke server Xiaomi
+
+✅ Pengiriman request tepat pukul 00:00:00 waktu Beijing
+
+✅ Deteksi status akun: eligible / ditolak / menunggu
+
+
+
+---
+
+⚙️ Cara Instalasi di Termux (Step-by-step)
+
+1. 📥 Update Termux
+
 ```bash
 pkg update && pkg upgrade
 ```
+
+2. 📦 Install Dependensi Utama
+
 ```bash
-pkg install python git openssl libffi
-clang make
+pkg install python git openssl libffi clang make
 ```
 
-2. 🔃 Clone Repositori
+3. 🔃 Clone Repositori
 ```bash
 git clone https://github.com/Syuhadak27/Xiaomi-HyperOS-BootLoader-Bypass.git bypass
 cd bypass
 ```
 
-3. 📦 Install Dependencies
+4. 📦 Install Modul Python
+
 ```bash
 pip install --upgrade pip
-```
-```bash
 pip install -r requirements.txt
 ```
 
-Jika ada error SSL (ssl module is not available), lakukan reinstall Python:
+> Jika muncul error seperti ssl module is not available, lakukan reinstall Python:
+
+
+
 ```bash
 pkg uninstall python
 pkg install python
 ```
 
-Kemudian ulangi perintah pip install di atas.
+
+> Lalu ulangi instalasi dependensi di atas.
+
+
 
 
 ---
 
 🔐 Cara Mendapatkan new_bbs_serviceToken
 
-1. Gunakan Firefox Beta di Android
+1. Gunakan Firefox Beta (Android)
 
 
 2. Buka situs: https://buy.mi.com/global
 
 
-3. Login akun Xiaomi kamu
+3. Login menggunakan akun Xiaomi kamu
 
 
-4. Install Add-on "Cookie Editor"
+4. Install ekstensi Cookie Editor
+
 
 5. Setelah login sukses, buka Cookie Editor
 
 
-6. Cari cookie dengan nama: new_bbs_serviceToken
+6. Cari cookie bernama: new_bbs_serviceToken
 
 
 7. Salin nilainya
@@ -89,57 +123,66 @@ Kemudian ulangi perintah pip install di atas.
 
 🕒 Waktu Menjalankan Script
 
-> Jalankan script ini sekitar pukul 22:57 – 22:59 WIB
+> Jalankan sekitar pukul 22:57 – 22:59 WIB
 
 
 
-Kenapa?
+Mengapa?
+Script akan mulai menghitung ping pada:
 
-Script akan menghitung ping pada pukul 23:59:30 waktu Beijing (22:59:30 WIB)
+23:59:30 waktu Beijing (setara 22:59:30 WIB)
 
-Lalu mengirim request unlock tepat pukul 00:00:00 waktu Beijing
+Kemudian mengirim request tepat pada:
 
+00:00:00 waktu Beijing (23:00:00 WIB)
 
 
 ---
 
 🚀 Menjalankan Script
 
-1. Ubah config.py sesuaikan dg token mu
+1. Edit config.py dan masukkan token milikmu
 
 # config.py
+
 ```bash
 COOKIE_VALUE = "ISI_TOKEN_MU_DI_SINI"
 DEVICE_ID = ""  # Biarkan kosong untuk generate otomatis
 ```
 
 2. Jalankan Script
+
 ```bash
 python main.py
 ```
-Script akan otomatis:
+
+Script akan otomatis melakukan:
 
 Mengecek status akun
 
 Menyinkronkan waktu dengan server
 
-Menghitung delay jaringan
+Mengukur delay jaringan
 
 Menunggu waktu ideal
 
 Mengirim request unlock
 
 Menampilkan hasil di terminal
-Apapun hasilnya di terminal jangan di tutup terminal nya, 
-Logout akun mi di pengaturan, lalu login kembali, dan masuk ke developer option lalu tambahkan dan tautkan perangkat.
 
 
+> Setelah selesai, jangan tutup terminal.
+Logout akun Mi di pengaturan, login kembali, masuk ke Developer Options, dan tambahkan perangkat.
 
-📜 Lisensi
 
-Proyek ini bersifat eksperimental dan tidak berafiliasi dengan Xiaomi. Gunakan dengan risiko sendiri.
 
 
 ---
 
+📜 Lisensi
 
+Proyek ini bersifat eksperimental dan tidak berafiliasi dengan Xiaomi.
+Gunakan dengan risiko Anda sendiri.
+
+
+---
