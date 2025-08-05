@@ -2,7 +2,8 @@
 
 ---
 
-🔓 Xiaomi Unlock Automation Script
+## 🔓 Xiaomi Unlock Automation Scrip
+
 
 (Redmi Note 14 5G / Beryl)
 
